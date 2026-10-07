@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<upstream>
+		<remote-id type="github">Vladimir-csp/app2unit</remote-id>
+		<bugs-to>https://github.com/Vladimir-csp/app2unit/issues</bugs-to>
+	</upstream>
+</pkgmetadata>
