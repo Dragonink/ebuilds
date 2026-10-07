@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<upstream>
+		<remote-id type="github">helix-editor/helix</remote-id>
+		<bugs-to>https://github.com/helix-editor/helix/issues</bugs-to>
+		<changelog>https://github.com/helix-editor/helix/releases</changelog>
+	</upstream>
+</pkgmetadata>
