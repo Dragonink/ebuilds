@@ -1,0 +1,38 @@
+MAKEFLAGS += --no-builtin-rules --no-builtin-variables
+
+BASENAME ?= basename
+NVCHECKER ?= nvchecker
+NVCMP ?= nvcmp
+NVTAKE ?= nvtake
+PQUERY ?= pquery
+XARGS ?= xargs
+
+.DEFAULT_GOAL := nvcmp
+
+
+NV_CONFIG := nvchecker.toml
+NV_OLD := .old.ver.json
+NV_NEW := .new.ver.json
+
+$(NV_CONFIG) : $(wildcard */*/nvchecker.toml)
+	$(file >$@,[__config__])
+	$(file >>$@,oldver = "$(NV_OLD)")
+	$(file >>$@,newver = "$(NV_NEW)")
+	$(if $^,cat $^ >> $@)
+
+$(NV_OLD) : $(NV_CONFIG)
+	@$(PQUERY) --repo=$(file <profiles/repo_name) --non-live --max --format='{package}={version}' \
+	| $(XARGS) $(NVTAKE) --file=$(NV_CONFIG) --ignore-nonexistent
+
+$(NV_NEW) : $(NV_CONFIG)
+	@$(NVCHECKER) --file=$(NV_CONFIG)
+
+.PHONY : nvtake
+nvtake : $(NV_OLD)
+
+.PHONY : nvcheck
+nvcheck : $(NV_NEW)
+
+.PHONY : nvcmp
+nvcmp : $(NV_CONFIG) $(NV_OLD) $(NV_NEW)
+	@$(NVCMP) --file=$(NV_CONFIG) --sort=portage
