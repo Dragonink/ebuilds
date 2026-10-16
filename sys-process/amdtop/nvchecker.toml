@@ -1,0 +1,5 @@
+[amdtop]
+source = "github"
+github = "lhl/amdtop"
+use_latest_release = true
+prefix = "v"
