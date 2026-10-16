@@ -1,0 +1,6 @@
+[proton-cachyos-slr-bin]
+source = "github"
+github = "CachyOS/proton-cachyos"
+use_latest_release = true
+from_pattern = '^cachyos-(\d+\.\d+)-(\d{8})-slr$'
+to_pattern = '\1_p\2'
