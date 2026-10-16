@@ -1,0 +1,5 @@
+[xdg-terminal-exec]
+source = "github"
+github = "Vladimir-csp/xdg-terminal-exec"
+use_max_tag = true
+prefix = "v"
