@@ -1,0 +1,7 @@
+[proton-dw-bin]
+source = "gitea"
+host = "dawn.wine"
+gitea = "dawn-winery/dwproton"
+use_latest_release = true
+from_pattern = '^dwproton-(\d+\.\d+)-(\d+)$'
+to_pattern = '\1_p\2'
