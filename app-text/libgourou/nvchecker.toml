@@ -1,0 +1,8 @@
+[libgourou]
+source = "gitea"
+# host = "forge.soutade.fr"
+host = "git.mopalinski.com"
+gitea = "soutade/libgourou"
+# use_latest_release = true
+use_max_tag = true
+prefix = "v"
